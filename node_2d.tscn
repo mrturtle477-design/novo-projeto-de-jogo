@@ -1,3 +1,44 @@
 [gd_scene format=3 uid="uid://bls2nwi65cm7k"]
 
-[node name="Node2D" type="Node2D" unique_id=1577477881]
+[ext_resource type="Script" uid="uid://c4b3kowcflu0v" path="res://jogo.gd" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://b0vs43auv3xaf" path="res://Assets Godot Runner/background.png" id="2_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cvilvpgfiwthw" path="res://Assets Godot Runner/foreground.png" id="3_q6r6c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdubu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
+size = Vector2(1169, 45)
+
+[node name="jogo" type="Node2D" unique_id=628805826]
+script = ExtResource("1_epypp")
+velocidade = null
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=1164014693]
+position = Vector2(-3, 2.0000002)
+scale = Vector2(3.646875, 3.6166666)
+texture = ExtResource("2_0hol4")
+centered = false
+
+[node name="fundo2" type="Sprite2D" parent="." unique_id=1200342436]
+position = Vector2(584.5, 327)
+scale = Vector2(3.634375, 3.5666666)
+texture = ExtResource("2_0hol4")
+
+[node name="chao" type="Sprite2D" parent="." unique_id=1027776568]
+position = Vector2(-2, 536)
+scale = Vector2(3.625, 2.25)
+texture = ExtResource("3_q6r6c")
+centered = false
+
+[node name="chao2" type="Sprite2D" parent="." unique_id=1779540218]
+position = Vector2(8, 573)
+scale = Vector2(3.578125, 1.453125)
+texture = ExtResource("3_q6r6c")
+centered = false
+
+[node name="chaofisico" type="StaticBody2D" parent="." unique_id=1218103042]
+physics_material_override = SubResource("PhysicsMaterial_kdubu")
+
+[node name="corpochao" type="CollisionShape2D" parent="chaofisico" unique_id=725394465]
+position = Vector2(580, 619)
+shape = SubResource("RectangleShape2D_d21ai")
